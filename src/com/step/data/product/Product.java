@@ -11,6 +11,7 @@ public class Product {
     private String description;
     private int stock;
     private static int lastId;
+    private double profit = 0;
 
     public Product(String name, double buyingPrice, double sellingPrice, LocalDate expirationDate, String description, int stock) {
         id++;
@@ -55,6 +56,10 @@ public class Product {
         return lastId;
     }
 
+    public double getProfit() {
+        return profit;
+    }
+
     public void setStock(int stock) {
         this.stock = stock;
     }
@@ -70,5 +75,9 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", stock=" + stock +
                 '}';
+    }
+
+    public void addProfit(double profit) {
+        this.profit += profit;
     }
 }

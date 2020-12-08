@@ -39,6 +39,16 @@ public class ProductManager {
         return -1;
     }
 
+    public double getProfitProductByName(String productName) {
+        for (int i = 0; i < products.size(); i++) {
+            if(products.get(i).getName().equalsIgnoreCase(productName)) {
+                return products.get(i).getProfit();
+            }
+        }
+
+        return -1;
+    }
+
     public static double getTotalIncome() {
         return totalIncome;
     }
@@ -60,12 +70,21 @@ public class ProductManager {
         if(stockToSell > currentStock) {
             products.get(productIndex).setStock(0);
             totalIncome += (sellingPrice * currentStock);
-            totalProfit += ((sellingPrice - buyingPrice) * currentStock);
+
+            double profit = (sellingPrice - buyingPrice) * currentStock;
+            totalProfit += profit;
+            products.get(productIndex).addProfit(profit);
+
             return currentStock;
         } else {
             products.get(productIndex).setStock(currentStock - stockToSell);
+
             totalIncome += (sellingPrice * stockToSell);
-            totalProfit += ((sellingPrice - buyingPrice) * stockToSell);
+
+            double profit = (sellingPrice - buyingPrice) * stockToSell;
+            totalProfit += profit;
+            products.get(productIndex).addProfit(profit);
+
             return currentStock - stockToSell;
         }
     }

@@ -11,7 +11,7 @@ package com.step.app;
     3. Vinderea un produs: se alege un produs si se specifica cantitatea necesara - aplicatia il scoate din stoc. - DONE
     4. Profit: calcularea veniturilor și afișarea profitului. - DONE
     5. Profit pe produs: calcularea profitului pentru fiecare produs individual
-    (profit per produs = cantitatea x (pret de vanzare - pret de cumparare)).
+    (profit per produs = cantitatea x (pret de vanzare - pret de cumparare)). - DONE
     6. Sortare: afișați produsele
     1. După nume - în ordine alfabetică
     2. După data de expirare - în ordine inversă (produsele cu cea mai apropiata dată de expirare merg primele)
@@ -48,5 +48,6 @@ public class Main {
         pcm.sell();
         pcm.showTotalIncome();
         pcm.showTotalProfit();
+        pcm.showProfitByProductName();
     }
 }

@@ -57,10 +57,20 @@ public class ProductConsoleManager {
     }
 
     public void showTotalProfit() {
-        System.out.println("Total profit: " + ProductManager.getTotalProfit());
+        System.out.println("Total profit: $" + ProductManager.getTotalProfit());
     }
 
     public void showTotalIncome() {
-        System.out.println("Total income: " + ProductManager.getTotalIncome());
+        System.out.println("Total income: $" + ProductManager.getTotalIncome());
+    }
+
+    public void showProfitByProductName() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter product name to get profit of: ");
+        String product = sc.nextLine();
+
+        double profit = pm.getProfitProductByName(product);
+        System.out.println("Total profit of " + product + " is: $" + profit);
     }
 }
